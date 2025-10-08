@@ -22,5 +22,6 @@ public class Paciente implements Serializable {
     private Date nascimento;
     @Column(columnDefinition = "SMALLINT")
     private int numero_filhos;
+    @Enumerated(EnumType.STRING)
     private Sexo sexo;
 }

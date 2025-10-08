@@ -1,5 +1,8 @@
 package com.example.myjpa.api.enums;
 
+import lombok.Getter;
+
+@Getter
 public enum Sexo {
     MASCULINO("Masc"),
     FEMININO("Fem");
@@ -8,4 +11,6 @@ public enum Sexo {
     Sexo(String sexo){
         this.sexo = sexo;
     }
+
+
 }

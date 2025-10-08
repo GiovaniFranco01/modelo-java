@@ -1,8 +1,10 @@
 package com.example.myjpa.api.controller;
 
+import com.example.myjpa.api.model.paciente.Paciente;
 import com.example.myjpa.api.model.paciente.PacienteRequestDTO;
 import com.example.myjpa.api.service.PacienteService;
 import jakarta.validation.Valid;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -20,6 +22,9 @@ public class PacienteController {
     public ResponseEntity<String> Cadastrar(@RequestBody @Valid PacienteRequestDTO dto){
 
         System.out.println(dto);
+        Paciente paciente = new Paciente();
+        BeanUtils.copyProperties(dto,paciente);
+        this.pacienteService.save(paciente);
         return ResponseEntity.ok().body("ok, deu bom !!");
     }
 }
