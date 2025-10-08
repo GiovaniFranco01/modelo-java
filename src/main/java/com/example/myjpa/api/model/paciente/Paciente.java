@@ -16,8 +16,9 @@ public class Paciente implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Long id;
     private String nome;
+    @Column(unique = true)
     private String cns;
     private Date nascimento;
     @Column(columnDefinition = "SMALLINT")
